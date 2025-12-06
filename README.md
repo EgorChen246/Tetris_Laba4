@@ -149,12 +149,6 @@ Python 3.10+, Pygame (установка: pip install pygame). Запуск: pyt
 
 (5 файла: config.json, board.py, tetromino.py, renderer.py, main.py)
 
-## С
-
-```
-
-```
-
 ## config.json
 
 ```
@@ -501,7 +495,11 @@ sys.exit()
 
 ## Дополнительный функционал и изменения базовой версии кода
 
+## С
 
+```
+
+```
 
 ---
 
