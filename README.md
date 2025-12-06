@@ -154,7 +154,7 @@ python main.py
 ```
 ---
 
-## E. Полный исходный код (базовая версия)
+## G. Полный исходный код (базовая версия)
 
 (5 файла: config.json, board.py, tetromino.py, renderer.py, main.py)
 
@@ -504,10 +504,45 @@ sys.exit()
 
 ## Дополнительный функционал и изменения базовой версии кода
 
-## С
+### *Сохранение рекордов и прогресса*
+
+добавил файл scores.json для хранения максимального счёта. В Board.py добавлен метод save_score(), вызываемый в lock_piece() при обновлении рекорда. Загрузка в init(). Фрагмент: 
 
 ```
+def lock_piece(self, piece):
+    # ... (основная логика)
+    if self.score > self.high_score:
+        self.high_score = self.score
+        with open("scores.json", "w") as f:
+            json.dump({"high_score": self.high_score}, f)
+```
 
+### *Режим для двух игроков*
+
+Добавлен флаг multiplayer в config.json. При запуске спрашиваем режим в консоли. В main.py дублируем board для второго игрока, с раздельным управлением (WASD для второго). Фрагмент: 
+
+```
+def lock_piece(self, piece):
+    # ... (основная логика)
+    if self.score > self.high_score:
+        self.high_score = self.score
+        with open("scores.json", "w") as f:
+            json.dump({"high_score": self.high_score}, f)
+```
+
+### *Добавление музыки*
+
+Добавлен pygame.mixer.music.load("background.mp3") и .play(-1) в main.py после init(). Фрагмент: 
+
+```
+pygame.mixer.music.load("background.mp3")
+pygame.mixer.music.play(-1)
+```
+
+## main.py (с изменениями)
+
+```
+^_^
 ```
 
 ---
